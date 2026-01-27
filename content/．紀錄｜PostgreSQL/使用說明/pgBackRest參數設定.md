@@ -57,7 +57,7 @@ log-level-console=info
 log-level-file=detail
 log-path=/var/log/pgbackrest
 
-[cgh_main]
+[cg_test_prodcut]
 pg1-path=/var/lib/postgresql/17/main
 
 ```
