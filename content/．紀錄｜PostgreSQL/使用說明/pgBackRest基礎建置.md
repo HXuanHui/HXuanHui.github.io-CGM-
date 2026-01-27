@@ -168,8 +168,8 @@ sudo vim /etc/postgresql/16/main/postgresql.conf
 wal_level = replica
 # 2. 開啟歸檔模式
 archive_mode = on
-# 3. 設定歸檔指令 (注意 stanza 名稱要跟上面一致：cgh_main)
-archive_command = 'pgbackrest --stanza=cgh_main archive-push %p'
+# 3. 設定歸檔指令 (注意 stanza 名稱要跟上面一致：cg_test_prodcut)
+archive_command = 'pgbackrest --stanza=cg_test_prodcut archive-push %p'
 ```
 > 雖然上述設定能讓系統運作，但必須考慮極端情況：如果備份儲存庫發生問題，`archive_command` 可能會持續失敗，導致 `pg_wal` 目錄下的 WAL 檔案堆積，最終塞滿磁碟並導致資料庫崩潰。
 > 為此，pgBackRest 提供了一個關鍵的安全閥：`archive-push-queue-max` 參數。此參數決定在危機中，優先考慮保持資料庫在線（透過丟棄 WAL 並中斷備份鏈），還是確保備份完整性（冒著磁碟滿載導致資料庫崩潰的風險）？對於大多數生產系統，優先考慮可用性是正確的營運決策。

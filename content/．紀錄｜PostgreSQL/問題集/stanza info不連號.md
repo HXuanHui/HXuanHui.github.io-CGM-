@@ -73,7 +73,7 @@ stanza: cg_test_product
 
 ```
 # 加入 --target-timeline=current 確保它沿著最新的路徑走
-sudo -u postgres pgbackrest --stanza=cgh_main --type=time \
+sudo -u postgres pgbackrest --stanza=cg_test_prodcut --type=time \
   --target="2025-12-29 07:20:00" --target-timeline=current restore
 ```
 

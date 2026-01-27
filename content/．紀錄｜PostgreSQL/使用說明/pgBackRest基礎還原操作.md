@@ -17,7 +17,7 @@ maturity: Tree
 
 ```bash
 # (目前身分仍是 postgres)
-pgbackrest --stanza=cgh_main --type=full backup
+pgbackrest --stanza=cg_test_prodcut --type=full backup
 ```
 
 **提示：** 如果您在執行備份時不指定 `--type` 參數，pgBackRest 預設會嘗試執行增量備份 (`incr`)。然而，在沒有任何現存備份的情況下，它會自動將類型轉換為完整備份 (`full`)。
@@ -30,11 +30,13 @@ pgbackrest --stanza=cgh_main --type=full backup
 在有了完整備份之後，就可以執行更節省空間與時間的備份類型。
 
 - **執行差異備份 (Differential Backup)** 此備份包含自上次 **完整備份** 以來的所有變更。
- ```bash
+```bash
 pgbackrest --stanza=cg_test_prodcut --type=diff backup
 ```
+
 - **執行增量備份 (Incremental Backup)** 此備份僅包含自上一次備份（不論類型）以來的所有變更。
- ```bash
+  
+```bash
 pgbackrest --stanza=ccg_test_prodcut --type=incr backup
 ```
 
@@ -147,7 +149,7 @@ sudo systemctl stop postgresql
 
 ```bash
 # 執行還原
-sudo -u postgres pgbackrest --stanza=cgh_main --delta --type=time --target="2025-12-12 08:30:00" restore
+sudo -u postgres pgbackrest --stanza=cg_test_prodcut --delta --type=time --target="2025-12-12 08:30:00" restore
 ```
 - **參數解析**:
 	- `--delta`: 這是最佳實踐，它能只還原變動或遺失的檔案，比完全清空後再還原更快也更安全。
@@ -241,7 +243,7 @@ sudo -u postgres crontab -l
 ## 監控與日誌檢視
 有效的監控與日誌分析是問題排查與確保系統健康的基礎。
 
-- **pgBackRest 日誌**: pgBackRest 的主要日誌檔案預設存放於 `/var/log/pgbackrest/`。每個 Stanza 和命令都會有獨立的日誌檔，例如 `cgh_main-backup.log`。當備份或還原操作失敗時，這裡是最先需要檢查的地方。為了進行有效的故障排除，強烈建議在 `pgbackrest.conf` 中設定 `log-level-file=detail`，這能在不影響主控台輸出的情況下，提供用於事後分析的詳細日誌。
+- **pgBackRest 日誌**: pgBackRest 的主要日誌檔案預設存放於 `/var/log/pgbackrest/`。每個 Stanza 和命令都會有獨立的日誌檔，例如 `cg_test_prodcut-backup.log`。當備份或還原操作失敗時，這裡是最先需要檢查的地方。為了進行有效的故障排除，強烈建議在 `pgbackrest.conf` 中設定 `log-level-file=detail`，這能在不影響主控台輸出的情況下，提供用於事後分析的詳細日誌。
 - **PostgreSQL 日誌**: 有時問題的根源在於資料庫本身，例如歸檔失敗。您應同時檢查 PostgreSQL 的系統日誌來獲取更全面的資訊。
 
 在遇到問題時，結合檢查 pgBackRest 與 PostgreSQL 的日誌，通常能快速定位問題所在。
