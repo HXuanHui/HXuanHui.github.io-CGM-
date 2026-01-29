@@ -27,12 +27,12 @@ maturity: stone
 
 ### 2. 如果「只有一個 Stanza」，可以不寫 global 嗎？
 
-**可以。** 你可以把所有參數都塞進 `[cgh_main]` 裡面：
+**可以。** 你可以把所有參數都塞進 `[cg_test_prodcut]` 裡面：
 
 Ini, TOML
 
 ```
-[cgh_main]
+[cg_test_prodcut]
 pg1-path=/var/lib/postgresql/16/main
 repo1-path=/var/lib/pgbackrest
 repo1-retention-full=2

@@ -10,9 +10,6 @@ maturity: Tree
 
 
 # Prometheus+Grafana
-黃暄惠 2024/11
-
----
 
 ## 安裝 postgres_exporter
 

@@ -19,7 +19,6 @@ style: |-
 draft: false
 maturity: Tree
 ---
-
 ![bg left:40% opacity:0.5](．紀錄｜Oracle/Oracle封面.png) 
 
 # Oracle Database 19c 上課心得報告

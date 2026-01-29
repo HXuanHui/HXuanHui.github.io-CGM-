@@ -5,8 +5,11 @@ class:
 paginate: true
 header: PostgreSQL管理工具
 title:
-maturity: Tree
+maturity: Withered
 ---
+>[!attention]
+>**pg_basebackup** 及 **PEM** 的部分不符合我的使用情境，多有錯誤。
+
 ## PostgreSQL管理工具
  - pg_
  - psql
@@ -20,11 +23,12 @@ maturity: Tree
 ## pg_
 **舉例：**
 1. pg_ctl：用於啟動、停止、重啟 PostgreSQL 伺服器。
-2. pg_basebackup：用於對正在運行的 PostgreSQL 資料庫進行基礎備份。
+2. ~~pg_basebackup：用於對正在運行的 PostgreSQL 資料庫進行基礎備份。~~
 3. [pg_dump](dump跟restore差在哪裡？.md)：用於備份單一資料庫。
 4. [pg_restore](dump跟restore差在哪裡？.md)：從 `pg_dump` 創建的備份文件中恢復資料。
 
 ⭐ `pg_` 工具都是在命令行中使用的，直接在終端機中輸入命令來執行相應的操作。
+⭐ `pg_basebackup` 不支援增量備份、缺乏自動保留政策、效能瓶頸、無法斷點續傳，因此現在大多使用[[pgBackRest基礎建置|pgBackRest]]進行備份。
 
 ---
 

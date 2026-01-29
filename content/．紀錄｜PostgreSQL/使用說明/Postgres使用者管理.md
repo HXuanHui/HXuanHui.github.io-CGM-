@@ -6,7 +6,6 @@ paginate: true
 header: Postgres使用者管理
 maturity: Tree
 ---
-
 ## 創建Role
 ![](．紀錄｜PostgreSQL/picture/createrole.png)
 

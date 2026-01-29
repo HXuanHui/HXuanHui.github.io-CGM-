@@ -4,7 +4,7 @@ theme:
 class:
 paginate: true
 header: Postgres高可用性配置
-maturity: Sapling
+maturity: Seedling
 ---
 
 ## 方案一工具

@@ -1,11 +1,7 @@
 ---
-
 title:
-
 draft: false
-
 maturity: signpost
-
 ---
 上完19c教育課程之後整理的筆記還有一些遺忘的基礎知識拾遺：）
 

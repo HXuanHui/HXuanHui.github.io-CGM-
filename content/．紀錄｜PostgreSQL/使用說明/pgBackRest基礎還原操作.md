@@ -33,7 +33,6 @@ pgbackrest --stanza=cg_test_prodcut --type=full backup
 ```bash
 pgbackrest --stanza=cg_test_prodcut --type=diff backup
 ```
-
 - **執行增量備份 (Incremental Backup)** 此備份僅包含自上一次備份（不論類型）以來的所有變更。
   
 ```bash
